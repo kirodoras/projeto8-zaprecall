@@ -37,22 +37,6 @@ export default function PlayScreen() {
                         <h2>Pergunta 4</h2>
                         <ion-icon name="play-outline"></ion-icon>
                     </div>
-                    <div className="card">
-                        <h2>Pergunta 1</h2>
-                        <ion-icon name="play-outline"></ion-icon>
-                    </div>
-                    <div className="card">
-                        <h2>Pergunta 2</h2>
-                        <ion-icon name="play-outline"></ion-icon>
-                    </div>
-                    <div className="card">
-                        <h2>Pergunta 3</h2>
-                        <ion-icon name="play-outline"></ion-icon>
-                    </div>
-                    <div className="card">
-                        <h2>Pergunta 4</h2>
-                        <ion-icon name="play-outline"></ion-icon>
-                    </div>
                 </div>
             </div>
             <div className="playFooter">
