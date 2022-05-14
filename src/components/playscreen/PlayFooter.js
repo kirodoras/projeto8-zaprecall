@@ -1,33 +1,40 @@
-export default function PlayFooter() {
-    let arrResultIcons = []
-    const notZap = <ion-icon class="play-red" name="close-circle"></ion-icon>;
+import React from 'react';
+
+export default function PlayFooter(props) {
+    //LOGIC
+    function renderResult() {
+        if (props.iconsList.length === props.cardsLength) {
+            if (props.incorret) {
+                return <MessageResult img='assets/sad.png' title='Putz...' msg='Ainda faltam alguns... Mas não desanime!'></MessageResult>
+            } else {
+                return <MessageResult img='assets/party.png' title='Parabéns!' msg='Você não esqueceu de nenhum flashcard!'></MessageResult>
+            }
+        }
+    }
+    //UI
     return (
         <div className="playFooter">
-            <div className="message hidden">
-                <div className="messageHeader">
-                    <img src="assets/party.png" alt="Party emote" />
-                    <span>Parabéns!</span>
-                </div>
-                <div className="messageContent">
-                    Você não esqueceu de nenhum flashcard!
-                </div>
-            </div>
-            <div className="message hidden">
-                <div className="messageHeader">
-                    <img src="assets/sad.png" alt="Party emote" />
-                    <span>Putz...</span>
-                </div>
-                <div className="messageContent">
-                    Ainda faltam alguns... Mas não desanime!
-                </div>
-            </div>
-            <span className="playCounter">0/4 CONCLUÍDOS</span>
+            {
+                renderResult()
+            }
+            <span className="playCounter">{props.iconsList.length}/{props.cardsLength} CONCLUÍDOS</span>
             <span>
-                {notZap}
-                <ion-icon class="play-orange" name="help-circle"></ion-icon>
-                <ion-icon class="play-red" name="close-circle"></ion-icon>
-                <ion-icon class="play-green" name="checkmark-circle"></ion-icon>
+                {props.iconsList.map((value, index) => <ion-icon key={index} class={value.color} name={value.name}></ion-icon>)}
             </span>
+        </div>
+    );
+}
+
+function MessageResult(props) {
+    return (
+        <div className="message">
+            <div className="messageHeader">
+                <img src={props.img} alt="Party emote" />
+                <span>{props.title}</span>
+            </div>
+            <div className="messageContent">
+                {props.msg}
+            </div>
         </div>
     );
 }
