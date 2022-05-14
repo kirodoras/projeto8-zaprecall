@@ -1,4 +1,6 @@
 import React from 'react';
+import './styles/reset.css';
+import './styles/style.css';
 import HomeScreen from './components/HomeScreen';
 import PlayScreen from './components/playscreen/PlayScreen';
 
