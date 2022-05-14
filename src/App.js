@@ -1,6 +1,6 @@
 import React from 'react';
 import HomeScreen from './components/HomeScreen';
-import PlayScreen from './components/PlayScreen';
+import PlayScreen from './components/playscreen/PlayScreen';
 
 export default function App() {
     //LOGIC
