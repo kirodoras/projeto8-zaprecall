@@ -1,5 +1,4 @@
 import CardsPlace from "./CardsPlace";
-import PlayFooter from "./PlayFooter";
 
 export default function PlayScreen() {
     return (
@@ -11,7 +10,6 @@ export default function PlayScreen() {
                 </div>
                 <CardsPlace />
             </div>
-            <PlayFooter />
         </>
     );
 }

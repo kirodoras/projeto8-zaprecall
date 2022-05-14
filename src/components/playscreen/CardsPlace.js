@@ -1,4 +1,5 @@
 import React from 'react';
+import PlayFooter from "./PlayFooter";
 
 const deckReact = [
     {
@@ -29,13 +30,16 @@ const deckReact = [
 
 export default function CardsPlace() {
     return (
-        <div className="cardsPlace">
-            {deckReact.map((value, index) => <Card
-                question={value.question}
-                answer={value.answer}
-                cardNumber={index + 1}
-                key={index} />)}
-        </div>
+        <>
+            <div className="cardsPlace">
+                {deckReact.map((value, index) => <Card
+                    question={value.question}
+                    answer={value.answer}
+                    cardNumber={index + 1}
+                    key={index} />)}
+            </div>
+            <PlayFooter />
+        </>
     );
 }
 
@@ -46,7 +50,7 @@ function Card(props) {
     return (
         <>
             {
-                seeQuestion ? <CardHidden question={props.question} answer={props.answer}/> :
+                seeQuestion ? <CardHidden question={props.question} answer={props.answer} /> :
                     <CardShow cardNumber={props.cardNumber} changeCard={() => setSeeQuestion(true)} />
             }
         </>
@@ -65,7 +69,7 @@ function CardShow({ cardNumber, changeCard, color }) {
     );
 }
 
-function CardHidden({question, answer}) {
+function CardHidden({ question, answer }) {
     //LOGIC
     const [rotate, setRotate] = React.useState('');
 

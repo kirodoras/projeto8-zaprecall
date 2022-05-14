@@ -1,4 +1,6 @@
 export default function PlayFooter() {
+    let arrResultIcons = []
+    const notZap = <ion-icon class="play-red" name="close-circle"></ion-icon>;
     return (
         <div className="playFooter">
             <div className="message hidden">
@@ -21,6 +23,7 @@ export default function PlayFooter() {
             </div>
             <span className="playCounter">0/4 CONCLUÍDOS</span>
             <span>
+                {notZap}
                 <ion-icon class="play-orange" name="help-circle"></ion-icon>
                 <ion-icon class="play-red" name="close-circle"></ion-icon>
                 <ion-icon class="play-green" name="checkmark-circle"></ion-icon>
