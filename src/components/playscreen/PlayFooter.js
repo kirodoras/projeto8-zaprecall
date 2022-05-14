@@ -10,7 +10,7 @@ export default function PlayFooter() {
                     Você não esqueceu de nenhum flashcard!
                 </div>
             </div>
-            <div className="message">
+            <div className="message hidden">
                 <div className="messageHeader">
                     <img src="assets/sad.png" alt="Party emote" />
                     <span>Putz...</span>

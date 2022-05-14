@@ -15,7 +15,7 @@ export default function CardsPlace() {
                     </div>
                 </div>
             </div>
-            <div className="card">
+            <div className="card play-red">
                 <h2>Pergunta 1</h2>
                 <ion-icon name="play-outline"></ion-icon>
             </div>
