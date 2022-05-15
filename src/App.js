@@ -14,10 +14,15 @@ export default function App() {
             setDeck (event.target.value);
         }
     }
+
+    function resetPage () {
+        setDeck("");
+        return setPage(false);
+    }
     //UI
     return (
         <>
-            {(page && deck) ? <PlayScreen restartPage={() => setPage(false)} deck={deck} />
+            {(page && deck) ? <PlayScreen restartPage={() => setPage(resetPage ())} deck={deck} />
                 : <HomeScreen changePage={() => setPage(true)} whichDeck ={whichDeck} />}
         </>
     );
