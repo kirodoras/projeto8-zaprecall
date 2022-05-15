@@ -11,6 +11,11 @@ export default function PlayFooter(props) {
             }
         }
     }
+    function renderRestartButton() {
+        if (props.iconsList.length === props.cardsLength) {
+            return <RestartButton restartPage = {props.restartPage}></RestartButton>
+        }
+    }
     //UI
     return (
         <div className="playFooter">
@@ -21,6 +26,9 @@ export default function PlayFooter(props) {
             <span>
                 {props.iconsList.map((value, index) => <ion-icon key={index} class={value.color} name={value.name}></ion-icon>)}
             </span>
+            {
+                renderRestartButton()
+            }
         </div>
     );
 }
@@ -36,5 +44,11 @@ function MessageResult(props) {
                 {props.msg}
             </div>
         </div>
+    );
+}
+
+function RestartButton(props) {
+    return (
+        <button type="button" onClick={props.restartPage}>REINICIAR RECALL</button>
     );
 }

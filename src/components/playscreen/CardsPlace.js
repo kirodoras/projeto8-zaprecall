@@ -1,34 +1,7 @@
 import React from 'react';
 import PlayFooter from "./PlayFooter";
 
-const deckReact = [
-    {
-        question: 'O que é JSX?', answer: 'Uma extensão de linguagem do JavaScript'
-    },
-    {
-        question: 'O React é __ ', answer: 'uma biblioteca JavaScript para construção de interfaces'
-    },
-    {
-        question: 'Componentes devem iniciar com __', answer: 'letra maiúscula'
-    },
-    {
-        question: 'Podemos colocar __ dentro do JSX', answer: 'expressões'
-    },
-    {
-        question: 'O ReactDOM nos ajuda __ ', answer: 'interagindo com a DOM para colocar componentes React na mesma'
-    },
-    {
-        question: 'Usamos o npm para __', answer: 'gerenciar os pacotes necessários e suas dependências'
-    },
-    {
-        question: 'Usamos props para __', answer: 'passar diferentes informações para componentes '
-    },
-    {
-        question: 'Usamos estado (state) para __', answer: 'dizer para o React quais informações quando atualizadas devem renderizar a tela novamente'
-    },
-];
-
-export default function CardsPlace({deck}) {
+export default function CardsPlace({deck,restartPage}) {
     //LOGIC
     const [iconList, setIconList] = React.useState([]);
     const [incorret, setIncorret] = React.useState(false);
@@ -50,7 +23,7 @@ export default function CardsPlace({deck}) {
                     addIcon={addIcon}
                     setIncorret={setIncorret} />)}
             </div>
-            <PlayFooter cardsLength={deck.length} iconsList={iconList} incorret={incorret} />
+            <PlayFooter cardsLength={deck.length} iconsList={iconList} incorret={incorret} restartPage = {restartPage}/>
         </>
     );
 }
@@ -139,12 +112,3 @@ function CardHidden({ question, answer, resultZap, resultNotZap, resultHalfZap }
         </div>
     );
 }
-
-/*
-
-function addNewDeck(newdeck) {
-        const newDeck = [...newdeck];
-        setShuffleDeck(newDeck);
-    }
-    addNewDeck(deckReact);
-    .sort(() => { return Math.random() - 0.5 })*/
