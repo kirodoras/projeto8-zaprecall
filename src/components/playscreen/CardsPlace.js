@@ -28,29 +28,29 @@ const deckReact = [
     },
 ];
 
-export default function CardsPlace() {
+export default function CardsPlace({deck}) {
     //LOGIC
     const [iconList, setIconList] = React.useState([]);
     const [incorret, setIncorret] = React.useState(false);
 
     function addIcon(newicon) {
-		const newIconList = [...iconList, newicon];
-		setIconList(newIconList);
-	}
+        const newIconList = [...iconList, newicon];
+        setIconList(newIconList);
+    }
 
     //UI
     return (
         <>
             <div className="cardsPlace">
-                {deckReact.map((value, index) => <Card
+                {deck.map((value, index) => <Card
                     question={value.question}
                     answer={value.answer}
                     cardNumber={index + 1}
-                    key={index} 
-                    addIcon = {addIcon} 
-                    setIncorret = {setIncorret}/>)}
+                    key={index}
+                    addIcon={addIcon}
+                    setIncorret={setIncorret} />)}
             </div>
-            <PlayFooter cardsLength={deckReact.length} iconsList = {iconList} incorret = {incorret}/>
+            <PlayFooter cardsLength={deck.length} iconsList={iconList} incorret={incorret} />
         </>
     );
 }
@@ -62,35 +62,35 @@ function Card(props) {
     function renderCard() {
         switch (seeQuestion) {
             case 0:
-                return <CardShow cardNumber={props.cardNumber} 
+                return <CardShow cardNumber={props.cardNumber}
                     changeCard={() => setSeeQuestion(1)} />
             case 1:
                 return <CardHidden question={props.question}
                     answer={props.answer}
-                    resultZap={() =>{
+                    resultZap={() => {
                         setSeeQuestion(2);
-                        props.addIcon({ color: 'play-green', name: 'checkmark-circle'});
-                    }} 
+                        props.addIcon({ color: 'play-green', name: 'checkmark-circle' });
+                    }}
                     resultHalfZap={() => {
                         setSeeQuestion(3);
-                        props.addIcon({ color: 'play-orange', name: 'help-circle'});
+                        props.addIcon({ color: 'play-orange', name: 'help-circle' });
                     }}
                     resultNotZap={() => {
                         setSeeQuestion(4);
                         props.setIncorret(true);
-                        props.addIcon({ color: 'play-red', name: 'close-circle'});
-                    }}/>
+                        props.addIcon({ color: 'play-red', name: 'close-circle' });
+                    }} />
             case 2:
-                return <CardShow cardNumber={props.cardNumber} 
-                    color="play-green" nameIcon = "checkmark-circle"/>
+                return <CardShow cardNumber={props.cardNumber}
+                    color="play-green" nameIcon="checkmark-circle" />
             case 3:
-                return <CardShow cardNumber={props.cardNumber} 
-                    color="play-orange" nameIcon = "help-circle"/>
+                return <CardShow cardNumber={props.cardNumber}
+                    color="play-orange" nameIcon="help-circle" />
             case 4:
-                return <CardShow cardNumber={props.cardNumber} 
-                    color="play-red" nameIcon = "close-circle" />
+                return <CardShow cardNumber={props.cardNumber}
+                    color="play-red" nameIcon="close-circle" />
             default:
-                return <CardShow cardNumber={props.cardNumber} 
+                return <CardShow cardNumber={props.cardNumber}
                     changeCard={() => setSeeQuestion(1)} />
         }
     }
@@ -139,3 +139,12 @@ function CardHidden({ question, answer, resultZap, resultNotZap, resultHalfZap }
         </div>
     );
 }
+
+/*
+
+function addNewDeck(newdeck) {
+        const newDeck = [...newdeck];
+        setShuffleDeck(newDeck);
+    }
+    addNewDeck(deckReact);
+    .sort(() => { return Math.random() - 0.5 })*/
